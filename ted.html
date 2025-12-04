@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile Page</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f6fa;
+    }
+
+    /* --- SIDEBAR --- */
+    .sidebar {
+        width: 70px;
+        height: 100vh;
+        background: #ffffff;
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding-top: 50px;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .sidebar .icon {
+        width: 30px;
+        height: 30px;
+        margin: 20px auto;
+        background: #e5e7eb;
+        border-radius: 8px;
+    }
+
+    /* --- HEADER --- */
+    .header {
+        margin-left: 70px;
+        padding: 20px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        position: sticky;
+        top: 0;
+    }
+
+    .header h2 {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .search-box input {
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        background: #bbb;
+        border-radius: 50%;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+        margin-left: 70px;
+        padding: 20px;
+    }
+
+    .profile-box {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        max-width: 900px;
+        width: 100%;
+    }
+
+    /* --- USER INFO --- */
+    .user-info {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .user-photo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .edit-btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: #4285f4;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        float: right;
+    }
+
+    /* --- FORM --- */
+    .form {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+    }
+
+    .field label {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .field input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        background: #f8f8f8;
+        text-align: center;
+    }
+
+    /* --- EMAIL SECTION --- */
+    .email-section {
+        margin-top: 40px;
+    }
+
+    .email-box {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        background: #f8f8ff;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .mail-icon {
+        width: 40px;
+        height: 40px;
+        background: #5b7cfa;
+        border-radius: 10px;
+    }
+
+    .add-email {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 1px solid #5b7cfa;
+        background: #eef3ff;
+        color: #5b7cfa;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 250px;
+    }
+
+
+    /* -------------------------
+       RESPONSIVE
+    --------------------------*/
+
+    @media (max-width: 900px) {
+        .form {
+            grid-template-columns: 1fr;
+        }
+        .edit-btn {
+            float: none;
+            width: 100%;
+            max-width: 200px;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .sidebar {
+            width: 50px;
+        }
+
+        .header,
+        .content {
+            margin-left: 50px;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .user-info {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .email-box {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .user-photo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .profile-box {
+            padding: 15px;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+</div>
+
+<div class="header">
+    <h2>Welcome, Amanda</h2>
+    <p>Tue, 07 June 2022</p>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search">
+    </div>
+
+    <div class="avatar"></div>
+</div>
+
+<div class="content">
+    <div class="profile-box">
+
+        <div class="user-info">
+            <img src="https://via.placeholder.com/80" class="user-photo">
+            <div>
+                <h3>Alexa Rawles</h3>
+                <p>alexarawles@gmail.com</p>
+            </div>
+        </div>
+
+        <button class="edit-btn" id="editBtn">Edit</button>
+
+        <div class="form">
+            <div class="field">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+
+            <div class="field">
+                <label>Nick Name</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+
+            <div class="field">
+                <label>Gender</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+
+            <div class="field">
+                <label>Country</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+
+            <div class="field">
+                <label>Language</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+
+            <div class="field">
+                <label>Time Zone</label>
+                <input type="text" placeholder="Your First Name">
+            </div>
+        </div>
+
+        <div class="email-section">
+            <h3>My Email Address</h3>
+
+            <div class="email-box">
+                <div class="mail-icon"></div>
+                <div>
+                    <p>alexarawles@gmail.com</p>
+                    <span>1 month ago</span>
+                </div>
+            </div>
+
+            <button class="add-email" id="addEmailBtn">+ Add Email Address</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("editBtn").onclick = () => alert("Edit clicked");
+document.getElementById("addEmailBtn").onclick = () => alert("Add email clicked");
+</script>
+
+</body>
+</html>
+
+
+
